@@ -1,0 +1,74 @@
+﻿@model List<projeto_e_commerce.Models.ItemPedido>
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+<div id="botoesCategoria">
+    @using (Html.BeginForm("Index", "Carrinho", FormMethod.Post))
+    {<input type="submit" value="Limpar Carrinho" name="submit" /> 
+    <input type="button" value="Continuar Compras" /> 
+    <input type="submit" value="Fechar Compra" name="submit" />}
+   
+</div>
+@if (Model != null && Model.Any())
+{
+    <div id="tableDados" class="removerCssTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                    </th>
+                    <th>
+                        Nome / Descrição
+                    </th>
+                    <th>
+                        Quant.
+                    </th>
+                    <th>
+                        Preço (R$)
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (projeto_e_commerce.Models.ItemPedido itemPedido in Model)
+                {
+                    using (Html.BeginForm("Index", "Carrinho", FormMethod.Post))
+                    {
+                        <tr>
+                            <td> <img alt="" src="@itemPedido.Produto.UrlImagem" height="20" /> </td>
+                            <td>
+                                @(itemPedido.Produto.Nome + "-" + itemPedido.Produto.Descricao)
+                                @Html.Hidden("idProduto", itemPedido.Produto.IdProduto)
+                            </td>
+                            <td>
+                                @Html.TextBox("qntAtual", itemPedido.Quantidade, new { size = "10px" })
+                            </td>
+                            <td>
+                                @(itemPedido.Produto.Preco.ToString("c"))
+                            </td>
+                            <td> <input type="submit" value="Atualizar" name="submit" />/<input type="submit" value="Remover" name="submit" /> </td>
+                        </tr>
+                    }
+
+                }
+                <tr style=" border: 2px black solid;">
+                    <td colspan="4" style="text-align: right;">
+                        SubTotal:
+                    </td>
+                    <td colspan="1">
+                        @ViewBag.SubTotal
+                    </td>
+                </tr>
+                <tr style="border: 2px black solid;">
+                    <td colspan="4">
+                        Total:
+                    </td>
+                    <td>
+                        @ViewBag.Total
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+}

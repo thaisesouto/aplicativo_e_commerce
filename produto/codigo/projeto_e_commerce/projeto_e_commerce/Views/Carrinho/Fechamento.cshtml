@@ -1,0 +1,43 @@
+﻿@model projeto_e_commerce.Models.Cliente
+@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Fechamento", "Carrinho", FormMethod.Post))
+{
+    <div style="margin-top: 35px; margin-left: 38px; margin-right: 35px;">
+        <div style="width: 48%; height: 220px; border: black solid; float: left">
+
+            <table>
+                <tr>
+                    <td>@Html.Label("Nome: ")</td>
+                    <td>    @Html.TextBoxFor(n => n.NomeCompleto)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Rua: ")   </td>
+                    <td>  @Html.TextBoxFor(n => n.Endereco)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Email: ") </td>
+                    <td>    @Html.TextBoxFor(n => n.Email)</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="right">
+                        <input type="submit" value="Enviar" name="submit" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+        <div style="width: 45%; height: 100px; border: green solid; float: right;">
+            Forma de Pagamento<br />
+            <input type="radio" name="formaPag" value="1" />Cartão de Crédito<br />
+            <input type="radio" name="formaPag" value="2" />Transferencia<br />
+            <input type="radio" name="formaPag" value="3" />Boleto<br />
+        </div>
+        <div style="width: 45%; height: 100px; border: red solid; margin-top: 15px; float: right">
+            Valor Total da Compra:<br />
+            @ViewBag.Total
+        </div>
+    </div>
+}

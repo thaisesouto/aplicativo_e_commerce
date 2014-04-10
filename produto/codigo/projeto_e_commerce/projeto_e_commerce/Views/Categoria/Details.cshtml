@@ -1,0 +1,76 @@
+﻿@model projeto_e_commerce.Models.Categoria
+@{
+
+    Layout = "../Shared/_Layout.cshtml";
+}
+@Scripts.Render("~/Scripts/ScriptsCategoria")
+<div id="botoesCategoria">
+    <input type="button" value="Ver Carrinho" onclick="javascript:window.location=('@Url.Action("Index", "Carrinho", null)')" />&ensp;&ensp;<input type="button" value="Comprar Produto(s)" id="comprarProdutos" />&ensp;&ensp;<input type="button" value="Fechar Compra" />
+</div>
+<div id="meioCategoria">
+    <div id="menuEsquerdo">
+        <div class="opcaoMenu">
+            <a href="../Details/1">
+                <img src="../../Content/images/padaria.jpg" />
+            </a>
+        </div>
+        <div class="opcaoMenu">
+            <a href="../Details/2">
+                <img src="../../Content/images/carnes.jpg" />
+            </a>
+        </div>
+        <div class="opcaoMenu">
+            <a href="../Details/3">
+                <img src="../../Content/images/hortifrutigranjeiros.jpg" />
+            </a>
+        </div>
+        <div class="opcaoMenu">
+            <a href="../Details/4">
+                <img src="../../Content/images/laticinios.jpg" />
+            </a>
+        </div>
+    </div>
+    @if (Model != null && Model.Produtos != null)
+    {
+
+        <div id="tableDados">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                        </th>
+                        <th>
+                            Nome / Descrição
+                        </th>
+                        <th>
+                            Preço (R$)
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (projeto_e_commerce.Models.Produto produto in Model.Produtos)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkboxCategoria" value="@produto.IdProduto" />
+                            </td>
+                            <td>
+                                @produto.Nome
+                            </td>
+                            <td>
+                                @produto.Preco.ToString("c")
+                            </td>
+                            <td>
+                                <input type="button" value="Comprar" id="@produto.IdProduto" class="linkComprar" />
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        @Html.Hidden("urlAdicionarCarrinho", Url.Action("AdicionarAoCarrinho"))
+    }
+</div>
+
