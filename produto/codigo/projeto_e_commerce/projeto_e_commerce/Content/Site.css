@@ -1,0 +1,165 @@
+﻿body {
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #f00;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#subTitle {
+    font-size: large;
+    font-weight: bold;
+}
+
+#footer {
+    text-align: center;
+}
+
+#logoSite {
+    width: 80px;
+    height: 65px;
+    float: left;
+    margin-left: 35px;
+}
+
+#subTitle {
+    text-align: left;
+    width: 75%;
+    float: right;
+}
+
+#menuEsquerdo {
+    width: 25%;
+    float: left;
+    margin-bottom: 35px;
+}
+
+    #menuEsquerdo .opcaoMenu {
+        width: 80px;
+        height: 36px;
+        border: black solid 1px;
+        margin-left: 38px;
+        margin-top: 5px;
+    }
+
+        #menuEsquerdo .opcaoMenu img {
+            width: 80px;
+            height: 36px;
+        }
+
+.menuHome {
+    width: 112px;
+    height: 77px;
+    border: black solid 1px;
+}
+
+#tableDados {
+    width: 74%;
+    position: relative;
+    float: right;
+}
+
+.removerCssTable {
+    width: 100% !important;
+    position: relative !important;
+    float: none !important;
+}
+
+#tableDados table {
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+    #tableDados table thead {
+    }
+
+    #tableDados table td {
+        padding: 0;
+        border: white solid 1px;
+    }
+
+    #tableDados table thead tr th {
+        background: #C0C0C0;
+        border: black solid 1px;
+        min-width: 80px;
+    }
+
+#botoesCategoria {
+    margin-left: 29%;
+    margin-bottom: 15px;
+}
+
+.ladoEsquerdo {
+    float:left;
+    margin-left: 35px;
+    position:relative
+}
+
+.ladoDireito {
+ margin-right: 75px;
+ float:right;
+ position:relative
+}
+
+#textoEsquerda {
+    width: 140px;
+    height: 180px;
+    color: black;
+    border: black solid;
+    float: left;
+}
